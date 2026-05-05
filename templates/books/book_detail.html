@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ book.title }}{% endblock %}
+
+{% block content %}
+    <div class="card detail-card">
+        <h1>{{ book.title }}</h1>
+        
+        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+            <span class="badge">{{ book.genre }}</span>
+            <span class="badge">{{ book.language }}</span>
+        </div>
+
+        <p><strong>Автор:</strong> {{ book.author }}</p>
+        <p><strong>Издательство:</strong> {{ book.publisher }}</p>
+        <p><strong>Дата публикации:</strong> {{ book.published_date }}</p>
+        <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+        <p><strong>Количество страниц:</strong> {{ book.pages }} стр.</p>
+        
+        <hr>
+        
+        <h3>Описание:</h3>
+        <p>{{ book.description }}</p>
+        
+        <hr>
+
+        <h2 style="color: #10B981;">{{ book.price }} руб.</h2>
+        <p style="font-size: 0.8rem;">Добавлено в базу: {{ book.created_at }}</p>
+        
+        <a href="{% url 'book_list' %}" class="btn">⬅ Вернуться к списку книг</a>
+    </div>
+{% endblock %}
